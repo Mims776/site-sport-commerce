@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+<style>
+body{
+    background-image: url(assets/images/logo-de-vecteur-pour-le-magasin-sport-panneau-décoratif-noir-signe-avec-l-illustration-des-chaussures-à-la-mode-sports-et-les-155053910.jpg);
+}
+   
+</style>
+    <h1>Produit index</h1>
+     <div class="position-absolute top-10 start-50 translate-middle-x"><a class="btn btn-danger" role="button" mx-auto href="{{ path('app_produit_new') }}">Create new</a></div>
+
+    <table class="table">
+        <thead>
+            <tr class="table-primary">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Quantity</th>
+                <th>Reference</th>
+                <th>Images</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+        
+            <tr class="table-primary">
+                <td class="table-dark">{{ produit.id }}</td>
+                <td>{{ produit.name }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.quantity }}</td>
+                <td>{{ produit.reference }}</td>
+                <td><img src="{{ asset('assets/images/' ~ produit.images)}}" alt="" style="width:80px"></td>
+                <td>
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+
+
+{% endblock %}

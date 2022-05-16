@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<style>
+body{
+    background-image: url(assets/images/woman-1822459_1920.jpg);
+    
+}
+.container1{
+    background-color: grey;
+ width: 600px;
+ padding:50px;
+ border-radius: 30px;
+ box-shadow: 0 0 20px #000000;
+margin-bottom:20px;
+}
+   
+</style>
+    <h1 style="text-align:center;">Register</h1>
+    
+<div class="container">
+<div class="container1">
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn-success text-warning mx-auto">Register</button>
+    {{ form_end(registrationForm) }}
+    </div>
+</div>
+
+    
+{% endblock %}

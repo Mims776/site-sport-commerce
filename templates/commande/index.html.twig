@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande index{% endblock %}
+
+{% block body %}
+
+    <h1>Commande index</h1>
+<div class="position-absolute top-10 start-50 translate-middle-y"><a class="btn btn-danger" role="button" mx-auto href="{{ path('app_produit_new') }}">Create new</a></div>
+    <table class="table">
+        <thead>
+           <tr class="table-primary">
+                <th>Id</th>
+                <th>Date_commande</th>
+                <th>Nom</th>
+                <th>Adresse_livraison</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+           <tr class="table-primary">
+                
+                
+                <td class="table-dark">{{ commande.id }}</td>
+                <td>{{ commande.dateCommande ? commande.dateCommande|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commande.nom }}</td>
+                <td>{{ commande.adresseLivraison }}</td>
+                <td>{{ commande.status ? 'Yes' : 'No' }}</td>
+                <td>{{ commande.total }}</td>
+                <td>
+                    <a href="{{ path('commande_show', {'id': commande.id}) }}">show</a>
+                    <a href="{{ path('commande_edit', {'id': commande.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

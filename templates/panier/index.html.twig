@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!
+{% endblock %}
+
+{% block body %}
+<style>
+body{
+    background-image: url(assets/images/action-1869428_1920.jpg);
+    
+}
+
+a{
+	text-decoration:none;
+}
+
+.container{
+	margin-top:100px;
+}
+</style>
+	<div class="container">
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Nom</th>
+					<th scope="col">Prix</th>
+					<th scope="col">quantité</th>
+					<th scope="col">image</th>
+					<th>total</th>
+					<th>action</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in panier %}*
+
+
+					<tr>
+						<th scope="row">{{ item['produit'].getName() }}
+						</th>
+						<td>{{ item['produit'].getprix() }}</td>
+
+						<td>
+
+							<a href="{{ path('delete_quantity_produit' , {'id' :item['produit'].getId() })}}">
+								<i class="fas fa-minus me-2"></i>
+							</a>
+							{{ item['quantity'] }}
+							<a href="{{ path('add_panier' , {'id' :item['produit'].getId() })}}">
+								<i class="fas fa-plus ms-2"></i>
+							</a>
+
+						</td>
+
+						<td><img src="{{ asset('assets/images/' ~ item['produit'].getImages())}}" alt="" style="width:50px"></td>
+						<td>
+							{{ item['total'] }}</td>
+
+
+						<td>
+							<a href="{{ path('delete_produit_panier' , { 'id' : item['produit'].getId() }) }}">
+								<i class="fas fa-trash"></i>
+							</a>
+						</td>
+
+
+					</tr>
+
+				{% endfor %}
+	{{ total_panier }}</h3>
+
+			</tbody>
+		</table>
+		
+		<div>
+		<a href="{{ path('confirm_panier')}}" class="btn btn-secondary">Passer Votre commande </a>
+		<h3>le total de votre panier est de : 	{{ total_panier  }} €</h3>
+		</div>
+		
+
+		<div class="position-absolute top-20 start-50 translate-middle-x"><button class="btn btn-lg btn-warning" type="submit"><a href="{{ path('delete_panier') }}">Supprimer le panier</a>
+		{# <a href="{{ path('add_panier') }}">Ajouter produit panier</a>
+				<a href="{{ path('delete_quantity_produit') }}">supprimer 1 quantity</a> #}
+				</button>
+				</div>
+	</div>
+
+{% endblock %}

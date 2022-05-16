@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<style>
+a{
+    text-decoration:none;
+}
+body{
+    background-image: url(assets/images/logo-de-vecteur-pour-le-magasin-sport-panneau-décoratif-noir-signe-avec-l-illustration-des-chaussures-à-la-mode-sports-et-les-155053910.jpg);
+}
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class="row">
+ {% for item in liste_produits %}
+
+ <div class="col-4 p-4">
+<div class="shadow p-3 mb-5 bg-body rounded">
+ <div class="card" style="width: 18rem mx-auto;">
+  <img src="{{asset('assets/images/' ~ item.images)}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{item.name}}</h5>
+    <p class="card-text">{{item.prix}} €</p>
+    <p class="card-text">{{item.description}}</p>
+    <div class="position-absolute top-20 start-50 translate-middle-x"><button class="btn btn-lg btn-warning" type="submit"><a href="{{ path('add_panier' , { 'id' : item.id })}}">ajouter au panier</a></button>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+ {% endfor %}
+ </div>
+
+{% endblock %}

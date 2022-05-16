@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilController!{% endblock %}
+
+{% block body %}
+<style>
+a{
+    text-decoration:none;
+}
+body{
+    background-image: url(assets/images/business-5475663_1920.jpg);
+}
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    
+ .container{
+     margin-top:100px;
+     box-shadow: 0 0 40px #000000;
+ }  
+
+ .card{
+     width:800px;
+       background-color: grey;
+ 
+ padding:50px;
+ border-radius: 30px;
+ box-shadow: 0 0 20px #000000;
+margin-bottom: 100px;
+     
+ }
+</style>
+<div class="container mx-auto">
+        <div class="card mx-auto">
+            <div class="card-body mx-auto">
+                <p>Nom: {{ app.user.nom }}</p>
+                <p>Prenom: {{ app.user.prenom }}</p>
+                <p>Email: {{ app.user.email }}</p>
+                <p>adresse: {{ app.user.adresse }}</p>
+                <p>Code postal: {{ app.user.cp }}</p>
+                <p>Ville: {{ app.user.ville }}</p>
+                <p>Pays: {{ app.user.pays }}</p>
+                
+               
+                {# {% if info.status %}
+                    <p>Commande livrée</p>
+                {% else %}
+                    <p>Commande en cours de livraison</p>
+                {% endif %} #}
+                <a href="{{ path('adresse_new') }}" class="btn btn-primary">Creer une nouvelle adresse</a>
+                <a href="{{ path('user_contact_new')}}" class="btn btn-danger">Envoyer un message au support</a>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+{% endblock %}

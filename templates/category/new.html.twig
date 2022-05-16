@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+<style>
+<style>
+body{
+    background-image: url(assets/images/logo-de-vecteur-pour-le-magasin-sport-panneau-décoratif-noir-signe-avec-l-illustration-des-chaussures-à-la-mode-sports-et-les-155053910.jpg);
+}
+h1{
+    text-align:center;
+}
+a{
+    text-decoration:none;
+    color:white;
+}
+</style>
+    <h1>Create new Category</h1>
+<div class="mx-auto p-2" style="width: 280px;">
+    {{ include('category/_form.html.twig') }}
+
+     <button type="submit" class="btn btn-success mx-auto"><a href="{{ path('app_produit_index') }}">back to list</a></button>
+     </div>
+{% endblock %}

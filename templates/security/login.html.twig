@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<style>
+body{
+    background-image: url(assets/images/network-3524352_1920.jpg);
+}
+
+
+.container2{
+    background-color: grey;
+ width: 600px;
+ padding:100px;
+ border-radius: 30px;
+ box-shadow: 0 0 20px #000000;
+margin-bottom: 80px;
+text-align:center;
+align-self:center;
+margin-right:50px;
+}
+</style>
+<form method="post">
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3 bg-danger font-weight:bold">
+            Tu es connecté(e) en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnexion</a>
+        </div>
+        
+    {% endif %}
+
+<div class="mx-auto p-1" style="width: 280px;">
+<div class ="container2">
+    <h1 style="text-align:center;" class="h3 mb-6 font-weight-normal">Sign in</h1>
+    <label style="font-size:20px; color:white; font-weight:bold;" for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label style="font-size:20px; color:white; font-weight:bold;"for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+      <div class="position-absolute bottom-10 start-80"><button class="btn btn-lg btn-primary" type="submit">
+        Sign in
+        
+    </button>
+    </div>
+   
+    </div>
+    </div>
+    
+</form>
+{% endblock %}
