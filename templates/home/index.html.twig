@@ -1,17 +1,59 @@
+
+
 {% extends 'base.html.twig' %}
 
 {% block title %}NB'SOCK{% endblock %}
 
 {% block body %}
+
+
+
 <style>
+
 body{
     background-image: url(assets/images/45-452407_black-gold-wallpaper-hd.jpg);
+    padding:10px;
+    
 }
-#carouselExampleIndicators{
-    width:800px;
-    margin-left:360px;
-    margin-top:60px;
+#conteneur35{
+  display:flex;
+  justify-content: space-around;
+}
+#achat{
+   background-color: #000000;
+  padding:20px;
+  color:red;
+   font-size:24px;
+   font-weight:bold;
+}
+#envoi{
+  background-color: #000000;
+  padding:20px;
+   font-weight:bold;
+   font-size:24px;
+  color:green;
+}
+#valide{
+  background-color: #000000;
+  padding:20px;
+  color:green;
+   font-size:24px;
+   font-weight:bold;
+}
+#dollard{
+  background-color: #000000;
+   font-size:24px;
+  padding:20px;
+  color:gold;
+  font-weight:bold;
+}
 
+#carouselExampleIndicators{
+    width:660px;
+  
+    
+    margin-top:40px;
+    margin-left:140px;
 
 }
 
@@ -19,9 +61,50 @@ body{
     height:500px;
     width:50px;
 }
+
+#carroume{
+  display:flex;
+  margin-left:40px;
+
+
+}
+
+.resume{
+  position:relative;
+  margin-left:20px;
+  margin-top:36px;
+  align-self:center;
+  background-color:red;;
+  padding:30px;
+   box-shadow: 0 0 16px #FF0000;
+
+  
+  border-radius:10px;
+  
+  
+}
+
+
+.nb{
+  font-size:32px;
+  text-align:center;
+  color:grey;
+  font-weight:bold;
+}
+h2{
+  color:#79d2e6;
+  font-weight:bold;
+}
+
+p{
+  color:white;
+  font-size: 18px;
+  font-weight:bold;
+  font-style:italic;
+}
 </style>
 
-
+<section id="carroume">
 		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -49,6 +132,25 @@ body{
   </button>
   
 </div>
+
+<div class="resume">
+<h2>Notre marque..</h2>
+<p class="nb"> Chez NB'SOCK </p> <br>
+<p>Viens retrouver une gamme de produit<br>
+de top qualité...  de la NBA à la Ligue 1 <br>
+ ici , il y en aura pour tout les gouts.<p>
+ Alors viens vite decouvrir nos produits :)<br>
+ Nous disposons d'un service de qualité.<p><br>
+ <br>
+ <div id="conteneur35">
+ <div id="achat"><i class="fa-solid fa-basket-shopping"></i></div>
+ <div id="dollard"><i class="fa-solid fa-dollar-sign"></i></div>
+ <div id="valide"><i class="fa-solid fa-check"></i></div>
+<div id="envoi"><i class="fa-solid fa-truck"></i></div>
+</div>
+
+</div>
+</section>
 
 
 {% endblock %}

@@ -52,6 +52,11 @@ class Produit
      */
     private $images;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+ 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -140,4 +145,6 @@ class Produit
 
         return $this;
     }
+
+   
 }

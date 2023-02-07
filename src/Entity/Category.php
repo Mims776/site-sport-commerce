@@ -29,6 +29,9 @@ class Category
      */
     private $produits;
 
+    
+   
+
     public function __construct()
     {
         $this->produits = new ArrayCollection();
@@ -80,4 +83,9 @@ class Category
 
         return $this;
     }
+
+   
+
+   
+    
 }

@@ -21,7 +21,7 @@ class UserConfirmType extends AbstractType
             ->add('cp')
             ->add('ville')
             ->add('pays')
-            
+           
         ;
     }
 
